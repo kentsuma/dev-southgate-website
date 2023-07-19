@@ -41,8 +41,7 @@ export default function RootLayout({
   return (
     <html>
       <body>
-        <Nav pageDetails={pageDetails} />{" "}
-        {/* Pass the pageDetails prop to Nav */}
+        <Nav pageDetails={pageDetails} />
         {children}
         <Footer />
       </body>

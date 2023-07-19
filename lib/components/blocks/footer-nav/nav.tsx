@@ -21,7 +21,6 @@ interface NavProps {
 export default function Nav({ pageDetails }: NavProps) {
   const [isMenu, setIsMenu] = useState(false);
 
-  console.log("TEST:", pageDetails);
   const handleMenu = () => {
     setIsMenu(!isMenu);
   };
