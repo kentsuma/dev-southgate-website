@@ -63,3 +63,8 @@ export type PaginationProps = {
   itemsPerPage: number;
   goToNextPage: () => void;
 };
+
+export type Location = {
+  longitude: String;
+  latitude: String;
+};
