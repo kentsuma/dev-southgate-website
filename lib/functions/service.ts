@@ -1,5 +1,10 @@
 import client from "../apollo/client";
-import { GetAllPages, GetContactPage, GetHomePage } from "../graphql";
+import {
+  GetAllPages,
+  GetContactPage,
+  GetHomePage,
+  GetAboutPage,
+} from "../graphql";
 import axios from "axios";
 
 export const getAllPages = async () => {
@@ -29,6 +34,14 @@ export const getHomePage = async () => {
 
   return await pages?.data;
 };
+
+export async function getAboutPage() {
+  const pages = await client.query({
+    query: GetAboutPage,
+  });
+
+  return await pages?.data;
+}
 
 export default async function handler(req: any, res: any) {
   if (req.method === "POST") {
