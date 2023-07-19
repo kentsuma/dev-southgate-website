@@ -1,16 +1,27 @@
 "use client";
 import Link from "next/link";
-import { useState, useEffect } from "react";
 import Image from "next/image";
-import SouthGate from "public/images/southgate.png";
+import { useState, useEffect } from "react";
+
+// Images
+import SouthGate from "@/public/images/southgate.png";
 import Logo from "@/public/images/logo.png";
+
+// Icons
 import { GiHamburgerMenu } from "react-icons/gi";
 import { AiOutlineClose } from "react-icons/ai";
 
-export default function Nav(pageDetails: any) {
+// Types
+import { PageDetail } from "@/lib/functions/types";
+
+interface NavProps {
+  pageDetails: PageDetail[];
+}
+
+export default function Nav({ pageDetails }: NavProps) {
   const [isMenu, setIsMenu] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
-  // const [pageDetails, setPageDetails] = useState([]);
+
+  console.log("TEST:", pageDetails);
   const handleMenu = () => {
     setIsMenu(!isMenu);
   };
@@ -33,30 +44,10 @@ export default function Nav(pageDetails: any) {
   }, []);
 
   console.log(states.scrollY);
-
-  // useEffect(() => {
-  //   const handleScroll = () => {
-  //     console.log(window.scrollY);
-  //     if (window.scrollY > 0) {
-  //       setIsScrolled(true);
-  //       console.log("TEST");
-  //     } else {
-  //       setIsScrolled(false);
-  //       console.log("TEST else");
-  //     }
-  //   };
-
-  //   window.addEventListener("scroll", handleScroll);
-
-  //   // return () => {
-  //   //   window.removeEventListener("scroll", handleScroll);
-  //   // };
-  // }, []);
-
   return (
     <div
       className={`w-full z-2 sticky top-0 ${
-        isScrolled ? "bg-[#2b2b2b]" : "bg-transparent"
+        states.scrollY !== 0 ? "bg-[#2b2b2b]" : "bg-transparent"
       }`}
     >
       <div className="flex  py-1 margin ">
@@ -66,7 +57,7 @@ export default function Nav(pageDetails: any) {
           )}
         </div>
         {/* Navigation bar for desktop */}
-        {/* <nav className="sm:flex w-full gap-[50px] justify-end items-center text-white text-carrois font-bold hidden">
+        <nav className="sm:flex w-full gap-[50px] justify-end items-center text-white text-carrois font-bold hidden">
           {pageDetails &&
             pageDetails
               .slice()
@@ -75,12 +66,12 @@ export default function Nav(pageDetails: any) {
                 <Link
                   key={page.id}
                   href={page.uri}
-                  className="no-underline text-carrois text-[15px] text-white"
+                  className="no-underline text-carrois text-[15px] text-black"
                 >
                   {page.slug.toUpperCase()}
                 </Link>
               ))}
-        </nav> */}
+        </nav>
         {/* Navigation bar for mobile */}
         <nav className="sm:hidden flex items-center w-full cursor-pointer relative">
           <div
@@ -110,7 +101,7 @@ export default function Nav(pageDetails: any) {
                 </div>
               </div>
               <div className="flex flex-col justify-start w-full">
-                {pageDetails
+                {pageDetails!
                   .slice()
                   .reverse()
                   .map((page: any) => (
