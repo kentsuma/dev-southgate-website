@@ -1,0 +1,232 @@
+/* WRITE CUSTOM CSS HERE */
+@import url("https://unpkg.com/leaflet/dist/leaflet.css");
+
+/*CUSTOM FONTS START*/
+@font-face {
+  font-family: "Carrois Gothic";
+  src: local("CarroisGothic"),
+    url("../public/fonts/CarroisGothic-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "FF Good Pro";
+  src: local("FFGoodPro"),
+    url("../public/fonts/FFGoodPro-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "FF Good Pro Bold";
+  src: local("FFGoodProBold"),
+    url("../public/fonts/FFGoodPro-Bold.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+.text-carrois {
+  font-family: "Carrois Gothic";
+}
+
+.text-goodpro {
+  font-family: "FF Good Pro";
+}
+
+.text-goodpro-bold {
+  font-family: "FF Good Pro Bold";
+}
+
+.text-demonicyellow {
+  color: #ffe600;
+}
+/*CUSTOM FONTS END*/
+
+/*CUSTOM COLORS START*/
+.bg-darkcharcoal {
+  background-color: #2b2b2b;
+}
+
+.bg-rivieraparadise {
+  background-color: #06989f;
+}
+
+/*CUSTOM COLORS END*/
+
+.banner {
+  @apply h-[400px] sm:h-[600px];
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  filter: brightness(0.5);
+}
+
+.banner-products {
+  @apply h-[300px] sm:h-[380px];
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  filter: brightness(0.5);
+}
+
+.parallelogram-background {
+  @apply relative sm:w-[90%] h-auto;
+}
+
+.parallelogram-background::after {
+  @apply w-full h-full absolute sm:skew-x-[-5deg];
+  z-index: -1;
+  content: "";
+  background-color: #2b2b2b;
+}
+
+.parallelogram-background::before {
+  @apply sm:absolute sm:top-0 sm:-left-[40px] sm:w-[200px] sm:h-full;
+  content: "";
+  background-color: #2b2b2b;
+}
+
+.parallelogram-card {
+  width: 200px;
+  height: 300px;
+  position: relative;
+  transform: skewX(-9deg);
+  background-color: #2b2b2b;
+}
+
+.juliana {
+  @apply h-auto w-auto relative;
+}
+
+/* yellow overlay of an image */
+.juliana-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(116, 118, 6, 0.5); /* light gray with 50% opacity */
+  width: 100%;
+  height: 100%;
+}
+
+.margin {
+  @apply mx-[30px] sm:mx-[40px] lg:mx-[90px];
+}
+
+.margin-y {
+  @apply my-[40px] sm:my-[70px] lg:my-[110px];
+}
+
+.faq-parallelogram {
+  @apply lg:h-[70px] w-[90%] md:w-[80%] md:h-[50px];
+  position: relative;
+  transform: skewX(-20deg);
+  transition: all 0.3s ease;
+}
+
+.faq-parallelogram.expanded {
+  transform: skewX(-20deg) scale(1.05);
+}
+
+.faq-details {
+  width: 80%;
+  height: auto;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.faq-details.expanded {
+  max-height: 200px; /* Adjust the value to fit your content */
+}
+.sideways-text {
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 18px;
+  padding-right: 20px;
+}
+
+.menu-parallelogram {
+  @apply w-full h-[40px] sm:w-[90%] sm:h-[90px] bg-rivieraparadise sm:transform sm:skew-x-[-20deg];
+  position: relative;
+}
+
+.menu-parallelogram::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  z-index: -1;
+  left: -40px;
+  width: 100px;
+  height: 100%;
+  background-color: inherit;
+  transform: skewX(8deg);
+}
+
+.full-width-hr {
+  border: none;
+  height: 1px;
+  background-color: black;
+  width: 100000px;
+  margin-left: -1000px;
+}
+
+.text-align {
+  @apply sm:text-left text-center;
+}
+
+.row {
+  flex-direction: row;
+}
+
+.col {
+  flex-direction: column;
+}
+
+@keyframes fade-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-fade-in-right {
+  animation: fade-in-right 0.3s ease;
+}
+
+@keyframes fade-out-left {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+}
+
+.animate-fade-out-left {
+  animation: fade-out-left 0.3s ease;
+}
+
+.link {
+  text-decoration: none;
+}
