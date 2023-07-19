@@ -17,7 +17,6 @@ export default async function AboutPage() {
   const parallelogram = data.nodeByUri.blocks[1].attributes.data;
 
   const parallelDeets = arrangeData(parallelogram);
-  console.log(parallelDeets);
   return (
     <main>
       <section>
