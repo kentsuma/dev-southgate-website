@@ -30,13 +30,8 @@ const ContactForm: React.FC = () => {
       });
 
       const data = await response.json();
-      console.log(data);
-
-      // Handle the response (success or error) accordingly in your UI
-      // For example, show a success message or an error message
     } catch (error) {
       console.error("Error submitting form:", error);
-      // Handle the error in your UI
     }
   };
 

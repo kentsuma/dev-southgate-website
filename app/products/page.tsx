@@ -19,7 +19,6 @@ export default async function ProductsPage() {
 
   const data = await getProductsPage();
   const bannerData = data.nodeByUri.blocks[0].attributes.data;
-  console.log(bannerData);
   const products = data.products;
 
   const productsData: {

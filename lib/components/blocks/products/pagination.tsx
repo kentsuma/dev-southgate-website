@@ -14,9 +14,7 @@ export const Pagination: React.FC<PaginationProps> = ({
   itemsPerPage,
   goToNextPage,
 }) => {
-  console.log("all", allItems);
   const totalPages = Math.ceil(allItems / itemsPerPage);
-  console.log("TOTAL PAGES", totalPages);
 
   return (
     <>

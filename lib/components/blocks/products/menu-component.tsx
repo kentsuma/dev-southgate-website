@@ -48,8 +48,6 @@ export default function MenuComponent({ menuData }: MenuData) {
     setCurrentPage(1); // Reset currentPage to 1
   };
 
-  console.log(allItems);
-
   useEffect(() => {
     const items: MenuItem[] = [];
 
@@ -64,7 +62,6 @@ export default function MenuComponent({ menuData }: MenuData) {
       }
     }
 
-    console.log("LENGTH", items.length);
     setAllItems(items.length); // Update the total number of items
   }, [activeCategory, menuData]);
 

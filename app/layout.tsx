@@ -1,4 +1,3 @@
-"use client";
 // STYLES
 import "../styles/globals.css";
 import "../styles/styles.css";
@@ -17,26 +16,12 @@ import { useState, useEffect } from "react";
 // Types
 import { PageDetail } from "@/lib/functions/types";
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  const [pageDetails, setPageDetails] = useState<PageDetail[]>([]);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const pages = await getAllPages();
-        // setPageDetails(pages);
-        console.log("HELLO: ", pages);
-      } catch (error) {
-        console.log("Error fetching page details:", error);
-      }
-    };
-
-    fetchData();
-  }, []);
+  const pageDetails = await getAllPages();
 
   return (
     <html>

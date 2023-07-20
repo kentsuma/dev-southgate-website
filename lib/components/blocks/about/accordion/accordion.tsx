@@ -4,7 +4,6 @@ import React from "react";
 import AccordionCard from "./accordion-card";
 
 export default async function Accordion({ faq }: { faq: any }) {
-  console.log(faq);
   return (
     <div className="flex justify-center w-full items-center flex-col lg:flex-row">
       <div className="lg:-rotate-90 sideways-text  sm:justify-end md:mt-10 lg:mt-20 items-center lg:h-[500px] flex lg:ml-3 lg:-mr-5 w-full sm:w-auto justify-center">

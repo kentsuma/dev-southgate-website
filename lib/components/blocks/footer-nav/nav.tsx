@@ -13,13 +13,13 @@ import { AiOutlineClose } from "react-icons/ai";
 
 // Types
 import { PageDetail } from "@/lib/functions/types";
-
-interface NavProps {
+type NavProps = {
   pageDetails: PageDetail[];
-}
+};
 
 export default function Nav({ pageDetails }: NavProps) {
   const [isMenu, setIsMenu] = useState(false);
+  console.log(pageDetails);
 
   const handleMenu = () => {
     setIsMenu(!isMenu);
@@ -42,7 +42,6 @@ export default function Nav({ pageDetails }: NavProps) {
     };
   }, []);
 
-  console.log(states.scrollY);
   return (
     <div
       className={`w-full z-2 sticky top-0 ${
@@ -65,7 +64,7 @@ export default function Nav({ pageDetails }: NavProps) {
                 <Link
                   key={page.id}
                   href={page.uri}
-                  className="no-underline text-carrois text-[15px] text-black"
+                  className="no-underline text-carrois text-[15px] text-white"
                 >
                   {page.slug.toUpperCase()}
                 </Link>

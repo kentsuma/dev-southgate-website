@@ -12,7 +12,6 @@ export default async function ContactPage() {
   const contactData = await getContactPage();
   const banner = contactData[0].attributes.data;
   const map = contactData[2].attributes.data;
-  console.log(contactData);
 
   return (
     <main>

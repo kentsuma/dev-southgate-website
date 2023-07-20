@@ -15,7 +15,6 @@ const ProductList: React.FC<ProductListProps> = ({
   activeCategory,
   selectedItem,
 }) => {
-  console.log(getSortedItems);
   return (
     <div className="flex flex-col w-auto h-auto ml-[60px]">
       {/* Other Categories */}
