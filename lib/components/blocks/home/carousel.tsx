@@ -2,19 +2,19 @@
 import { useState } from "react";
 import Carousel from "react-bootstrap/Carousel";
 import Image from "next/image";
+
+// Image
 import MikeBird from "@/public/images/mike-bird.png";
 
 export default function ControlledCarousel({ statements }: any) {
   const [index, setIndex] = useState(0);
+  console.log(statements);
 
   const handleSelect = (selectedIndex: number) => {
     setIndex(selectedIndex);
   };
 
-  const reversedTestimonies = [];
-  for (let i = statements.length - 1; i >= 0; i--) {
-    reversedTestimonies.push(statements[i]);
-  }
+  const reversedTestimonies = statements.slice().reverse();
 
   return (
     <Carousel
@@ -24,18 +24,15 @@ export default function ControlledCarousel({ statements }: any) {
       indicators
     >
       {reversedTestimonies.map((statement: any) => (
-        <Carousel.Item
-          key={statement.testimonyDetails.image.id}
-          className="flex flex-col items-center justify-center"
-        >
+        <Carousel.Item key={statement.testimonyDetails.id}>
           <div className="w-full flex items-center justify-center">
             <div className="juliana-overlay"></div>
             <Image
               src={MikeBird}
               alt="Slide"
               width={1000}
-              height={400}
-              className="w-full h-[600px]"
+              height={1000}
+              className="w-auto h-[600px]"
             />
           </div>
           <Carousel.Caption className="flex items-center justify-center mb-8">
@@ -47,8 +44,8 @@ export default function ControlledCarousel({ statements }: any) {
                       src={statement.testimonyDetails.image.sourceUrl}
                       alt="Testimony"
                       className="h-full w-auto"
-                      width="1000"
-                      height="1000"
+                      width="300"
+                      height="250"
                     />
                   </div>
                 </div>

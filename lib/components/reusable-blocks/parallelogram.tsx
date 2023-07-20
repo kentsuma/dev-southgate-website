@@ -1,6 +1,8 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
+
+// Components
 import Button from "@/lib/functions/button";
 import EmbedVideo from "./embed-video";
 
@@ -10,7 +12,7 @@ import { Parallelogram } from "@/lib/functions/types";
 export default function Paralllogram({ data }: { data: Parallelogram }) {
   return (
     <div className="parallelogram-background flex sm:flex-col mt-[70px] text-white justify-center items-start">
-      <div className="flex flex-col justify-center w-full items-center sm:items-start sm:ml-[250px]">
+      <div className="flex flex-col justify-center items-center sm:items-start sm:ml-[250px]">
         {data.map((parallelData: any, index: number) =>
           parallelData.item.image !== null ? (
             <div

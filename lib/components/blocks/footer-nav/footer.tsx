@@ -1,6 +1,8 @@
 "use client";
 import Image from "next/image";
 import Logo from "@/public/images/logo.png";
+
+// Images
 import HatchitLogo from "@/public/images/hatchit_logo.png";
 import FacebookLogo from "@/public/images/fb_logo.png";
 import YoutubeLogo from "@/public/images/yt_logo.png";

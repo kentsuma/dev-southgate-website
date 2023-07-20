@@ -3,9 +3,6 @@ import React, { useRef, useEffect } from "react";
 import "mapbox-gl/dist/mapbox-gl.css";
 import mapboxgl from "mapbox-gl";
 
-// Types
-import { Location } from "@/lib/functions/types";
-
 mapboxgl.accessToken = process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN || "";
 
 const MapView = ({ location }: { location: any }) => {

@@ -11,10 +11,6 @@ import Nav from "@/lib/components/blocks/footer-nav/nav";
 import Footer from "@/lib/components/blocks/footer-nav/footer";
 
 import { getAllPages } from "@/lib/functions/service";
-import { useState, useEffect } from "react";
-
-// Types
-import { PageDetail } from "@/lib/functions/types";
 
 export default async function RootLayout({
   children,
