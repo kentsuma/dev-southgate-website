@@ -52,7 +52,7 @@ export type MenuData = {
 export type MenuCategoriesProps = {
   activeCategory: string;
   handleClick: any;
-  menuData: MenuData;
+  menuData: any;
 };
 
 export type PaginationProps = {

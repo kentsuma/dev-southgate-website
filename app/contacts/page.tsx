@@ -2,8 +2,8 @@ import React from "react";
 
 // Components
 import Banner from "@/lib/components/reusable-blocks/banner";
-import ContactForm from "@/lib/components/blocks/contact/contact-form";
-import MapView from "@/lib/components/blocks/contact/map-view";
+import ContactForm from "@/lib/components/blocks/contacts/contact-form";
+import MapView from "@/lib/components/blocks/contacts/map-view";
 
 // Helper
 import { getContactPage } from "@/lib/functions/service";

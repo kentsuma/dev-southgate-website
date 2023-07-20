@@ -24,7 +24,7 @@ const MapView = ({ location }: { location: any }) => {
         .setLngLat([longitude, latitude])
         .addTo(map);
     }
-  }, []);
+  }, [longitude, latitude]);
 
   return (
     <div

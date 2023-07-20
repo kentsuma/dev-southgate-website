@@ -1,7 +1,7 @@
 import { gql } from "@apollo/client";
 
 const GetAllPages = gql`
-  query GetAllPages {
+  query getAllPages {
     pages {
       nodes {
         id
