@@ -85,7 +85,7 @@
 }
 
 .parallelogram-background {
-  @apply relative sm:w-[90%] h-auto;
+  @apply relative sm:w-[90%] h-auto w-auto;
 }
 
 .parallelogram-background::after {

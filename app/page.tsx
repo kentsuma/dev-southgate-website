@@ -27,7 +27,7 @@ export default async function Home() {
         <Banner banner={banner} />
       </section>
       {/* Parallelogram Section */}
-      <section>
+      <section className="w-full">
         <Parallelogram data={parallelDeets} />
       </section>
       {/* Products Section */}
