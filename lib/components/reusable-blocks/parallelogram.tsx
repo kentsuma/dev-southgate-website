@@ -59,13 +59,15 @@ export default function Paralllogram({ data }: { data: Parallelogram }) {
               </div>
             </div>
           ) : parallelData.video.videoFile !== "" ? (
-            <div className="flex sm:justify-start justify-center margin w-[80%] h-auto">
-              <video
-                src={parallelData.video.videoFile}
-                width="100%"
-                height="auto"
-                controls
-              />
+            <div className="flex sm:justify-start justify-center h-auto w-full sm:-ml-[160px]">
+              <div className=" h-[300px] lg:h-[500px] flex">
+                <video
+                  src={parallelData.video.videoFile}
+                  width="100%"
+                  height="100%"
+                  controls
+                />
+              </div>
             </div>
           ) : (
             <EmbedVideo video={parallelData.video.videoUrl} />
