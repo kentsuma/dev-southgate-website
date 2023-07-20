@@ -8,7 +8,6 @@ import MikeBird from "@/public/images/mike-bird.png";
 
 export default function ControlledCarousel({ statements }: any) {
   const [index, setIndex] = useState(0);
-  console.log(statements);
 
   const handleSelect = (selectedIndex: number) => {
     setIndex(selectedIndex);

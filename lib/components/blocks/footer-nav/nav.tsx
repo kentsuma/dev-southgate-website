@@ -19,7 +19,6 @@ type NavProps = {
 
 export default function Nav({ pageDetails }: NavProps) {
   const [isMenu, setIsMenu] = useState(false);
-  console.log(pageDetails);
 
   const handleMenu = () => {
     setIsMenu(!isMenu);
