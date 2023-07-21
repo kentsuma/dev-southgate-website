@@ -1,52 +1,42 @@
 "use client";
-import React, { useState, FormEvent } from "react";
+import React, { useRef } from "react";
+import emailjs from "@emailjs/browser";
 
 // Component
 import Button from "@/lib/functions/button";
 
 const ContactForm: React.FC = () => {
-  const [fullName, setFullName] = useState<string>("");
-  const [email, setEmail] = useState<string>("");
-  const [contactNumber, setContactNumber] = useState<string>("");
-  const [message, setMessage] = useState<string>("");
+  const form = useRef<HTMLFormElement>(null);
 
-  const [formData, setFormData] = useState({
-    fullname: "",
-    email: "",
-    contactnumber: "",
-    message: "",
-  });
-
-  const handleSubmit = async (e: any) => {
+  const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    try {
-      const response = await fetch("/api/submitForm", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
-
-      const data = await response.json();
-    } catch (error) {
-      console.error("Error submitting form:", error);
+    if (form.current) {
+      emailjs
+        .sendForm(
+          "service_qp97w9s",
+          "template_15zlx2i",
+          form.current,
+          "iuD4xAnE7Flblsgjt"
+        )
+        .then(
+          (result) => {
+            console.log(result.text);
+            form.current!.reset();
+            alert("Thank you for contacting us!");
+          },
+          (error) => {
+            console.log(error.text);
+          }
+        );
     }
-  };
-
-  const handleChange = (e: any) => {
-    const { name, value } = e.target;
-    setFormData((prevData) => ({
-      ...prevData,
-      [name]: value,
-    }));
   };
 
   return (
     <div className="parallelogram-background mt-[60px] sm:mt-[70px] flex">
       <form
-        onSubmit={handleSubmit}
+        onSubmit={sendEmail}
+        ref={form}
         className="margin text-white flex flex-col text-carrois w-full"
         style={{ zIndex: "1" }}
       >
@@ -60,9 +50,8 @@ const ContactForm: React.FC = () => {
             </label>
             <input
               type="text"
-              id="fullName"
-              value={formData.fullname}
-              onChange={(e) => setFullName(e.target.value)}
+              id="full_name"
+              name="full_name"
               className="text-black h-[40px] sm:h-[60px] w-[90%]"
             />
           </div>
@@ -73,8 +62,7 @@ const ContactForm: React.FC = () => {
             <input
               type="email"
               id="email"
-              value={formData.email}
-              onChange={(e) => setEmail(e.target.value)}
+              name="email"
               className="text-black h-[40px] sm:h-[60px] w-[90%]"
             />
           </div>
@@ -84,9 +72,19 @@ const ContactForm: React.FC = () => {
             </label>
             <input
               type="text"
-              id="contactnumber"
-              value={formData.contactnumber}
-              onChange={(e) => setContactNumber(e.target.value)}
+              id="contact"
+              name="contact"
+              className="text-black h-[40px] sm:h-[60px] w-[90%]"
+            />
+          </div>
+          <div className="flex flex-col text-1xl sm:text-2xl">
+            <label htmlFor="subject" className="mb-2">
+              Subject:
+            </label>
+            <input
+              type="text"
+              id="subject"
+              name="subject"
               className="text-black h-[40px] sm:h-[60px] w-[90%]"
             />
           </div>
@@ -96,8 +94,7 @@ const ContactForm: React.FC = () => {
             </label>
             <textarea
               id="message"
-              value={formData.message}
-              onChange={(e) => setMessage(e.target.value)}
+              name="message"
               className="text-black h-[100px] sm:h-[200px] w-[90%]"
             />
           </div>
