@@ -78,17 +78,6 @@ const ContactForm: React.FC = () => {
             />
           </div>
           <div className="flex flex-col text-1xl sm:text-2xl">
-            <label htmlFor="subject" className="mb-2">
-              Subject:
-            </label>
-            <input
-              type="text"
-              id="subject"
-              name="subject"
-              className="text-black h-[40px] sm:h-[60px] w-[90%]"
-            />
-          </div>
-          <div className="flex flex-col text-1xl sm:text-2xl">
             <label htmlFor="message" className="mb-2">
               Message:
             </label>
@@ -98,8 +87,8 @@ const ContactForm: React.FC = () => {
               className="text-black h-[100px] sm:h-[200px] w-[90%]"
             />
           </div>
-          <div className="-ml-10 text-goodpro">
-            <button type="submit">Submit</button>
+          <div className="sm:-ml-10">
+            <Button label="Submit" />
           </div>
         </div>
       </form>
