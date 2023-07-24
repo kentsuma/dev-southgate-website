@@ -13,7 +13,7 @@ const GetAllPages = gql`
 `;
 
 const GetHomePage = gql`
-  query GetHomepage {
+  query GetHomePage {
     nodeByUri(uri: "/") {
       ... on Page {
         id
