@@ -7,11 +7,14 @@ import MapView from "@/lib/components/blocks/contacts/map-view";
 
 // Helper
 import { getContactPage } from "@/lib/functions/service";
+import { arrangeLabels } from "@/lib/functions/helper";
 
 export default async function ContactPage() {
   const contactData = await getContactPage();
   const banner = contactData[0].attributes.data;
   const map = contactData[2].attributes.data;
+  const form = contactData[1].attributes.data;
+  const formDetails = arrangeLabels(form);
 
   return (
     <main>
@@ -21,7 +24,7 @@ export default async function ContactPage() {
       </section>
       {/* Contact Forms */}
       <section>
-        <ContactForm />
+        <ContactForm formDetails={formDetails} />
       </section>
       {/* Maps */}
       <section>

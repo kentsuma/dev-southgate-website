@@ -5,7 +5,11 @@ import emailjs from "@emailjs/browser";
 // Component
 import Button from "@/lib/functions/button";
 
-const ContactForm: React.FC = () => {
+interface ContactFormProps {
+  formDetails: string[];
+}
+
+const ContactForm: React.FC<ContactFormProps> = ({ formDetails }) => {
   const form = useRef<HTMLFormElement>(null);
 
   const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
@@ -46,7 +50,7 @@ const ContactForm: React.FC = () => {
               SEND US A MESSAGE
             </h3>
             <label htmlFor="fullName" className="mb-2">
-              Full Name:
+              {formDetails[0]}:
             </label>
             <input
               type="text"
@@ -57,7 +61,7 @@ const ContactForm: React.FC = () => {
           </div>
           <div className="flex flex-col text-1xl sm:text-2xl">
             <label htmlFor="email" className="mb-2">
-              Email Address:
+              {formDetails[1]}:
             </label>
             <input
               type="email"
@@ -68,7 +72,7 @@ const ContactForm: React.FC = () => {
           </div>
           <div className="flex flex-col text-1xl sm:text-2xl">
             <label htmlFor="contactNumber" className="mb-2">
-              Contact Number:
+              {formDetails[2]}:
             </label>
             <input
               type="text"

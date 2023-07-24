@@ -111,7 +111,7 @@ const GetAboutPage = gql`
 `;
 
 const GetContactPage = gql`
-  query getContactPage {
+  query GetContactPage {
     nodeByUri(uri: "/contacts/") {
       ... on Page {
         id

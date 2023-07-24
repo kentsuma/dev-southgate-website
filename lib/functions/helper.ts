@@ -44,3 +44,27 @@ export const arrangeData = (data: Parallelogram): ParallelogramDetails[] => {
 };
 
 // PARALLELOGRAM END
+
+// CONTACT FORMS
+interface LabelsObject {
+  [key: string]: string;
+}
+
+export const arrangeLabels = (labelsObject: LabelsObject): string[] => {
+  const labelsCount = parseInt(labelsObject["labels"]);
+
+  const arrangedLabels: string[] = [];
+
+  for (let i = 0; i < labelsCount; i++) {
+    const labelKey = `labels_${i}_label`;
+    const labelValue = labelsObject[labelKey];
+
+    if (labelValue) {
+      arrangedLabels.push(labelValue);
+    }
+  }
+
+  return arrangedLabels;
+};
+
+// CONTACT FORMS
